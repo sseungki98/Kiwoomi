@@ -3,8 +3,8 @@ from telegram.ext import Updater, CommandHandler
 import Controller
 
 # 텔레그램 봇 토큰
-TOKEN = 'YOUR_TOKEN_HERE'
-
+TOKEN = '6068822535:AAEdX6RZ9_7N85NtDsyYornSU5LeoH9tEdI'
+bot = telegram.Bot(token=TOKEN)
 # 메시지를 저장할 배열
 messages = []
 
@@ -27,7 +27,10 @@ def info(update, context):
     messages.append( context.args[0])
     # 메시지를 배열에 저장
     # Controller.py의 함수 호출
-    Controller.bring_info(messages)
+    result=Controller.bring_info(messages)
+    bot.sendMessage(chat_id=chat_id, text=context.args[0] + '에 관한 정보입니다')
+    bot.sendMessage(chat_id=chat_id, text=result)
+
 
 # /news 명령어 처리 함수
 def news(update, context):
@@ -35,7 +38,9 @@ def news(update, context):
     # 메시지를 배열에 저장
     messages.append(context.args[0])
     # Controller.py의 함수 호출
-    Controller.bring_News(messages)
+    result=Controller.bring_News(messages)
+    bot.sendMessage(chat_id=chat_id, text=context.args[0] + '에 관한 뉴스입니다.')
+    bot.sendMessage(chat_id=chat_id, text=result)
 
 # /alarm 명령어 처리 함수
 def alarm(update, context):
@@ -45,7 +50,11 @@ def alarm(update, context):
     messages.append(context.args[0])
     messages.append(context.args[1])
     # Controller.py의 함수 호출
-    Controller.set_Alarm(messages)
+    result=Controller.set_Alarm(messages)
+    if(result==True):
+        bot.sendMessage(chat_id=chat_id, text=context.args[0] + '에 대한 지정가 알람을 완료하였습니다.')
+    else:
+        bot.sendMessage(chat_id=chat_id, text=' 알람 등록에 실패 하였습니다. 주식명을 확인하여주세요.')
 
 # /search 명령어 처리 함수
 def search(update, context):
@@ -54,7 +63,9 @@ def search(update, context):
     messages.append(context.args[0])
     messages.append(context.args[1])
     # Controller.py의 함수 호출
-    Controller.search_info(messages)
+    result=Controller.search_info(messages)
+    bot.sendMessage(chat_id=chat_id, text=context.args[0] + '에 관한'+context.args[1]+'정보입니다.')
+    bot.sendMessage(chat_id=chat_id, text=result)
 
 # 메시지를 받아들이고 명령어 처리 함수를 연결하는 Updater 객체 생성
 updater = Updater(TOKEN, use_context=True)
