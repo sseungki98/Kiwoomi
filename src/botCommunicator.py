@@ -24,12 +24,15 @@ def help(update, context):
 # /info 명령어 처리 함수
 def info(update, context):
     chat_id = update.effective_chat.id
-    messages.append( context.args[0])
+    print(context.args[0])
+    messages.append(context.args[0])
+    print(messages)
     # 메시지를 배열에 저장
     # Controller.py의 함수 호출
-    result=Controller.bring_info(messages)
-    bot.sendMessage(chat_id=chat_id, text=context.args[0] + '에 관한 정보입니다')
+    result = Controller.bring_info(messages)
+    bot.sendMessage(chat_id=chat_id, text=messages[0] + '에 관한 정보입니다')
     bot.sendMessage(chat_id=chat_id, text=result)
+    messages.clear()
 
 
 # /news 명령어 처리 함수
@@ -38,9 +41,10 @@ def news(update, context):
     # 메시지를 배열에 저장
     messages.append(context.args[0])
     # Controller.py의 함수 호출
-    result=Controller.bring_News(messages)
+    result = Controller.bring_News(messages)
     bot.sendMessage(chat_id=chat_id, text=context.args[0] + '에 관한 뉴스입니다.')
     bot.sendMessage(chat_id=chat_id, text=result)
+    messages.clear()
 
 # /alarm 명령어 처리 함수
 def alarm(update, context):

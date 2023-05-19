@@ -1,9 +1,34 @@
 import requests
 from bs4 import BeautifulSoup
-import KiwoomConnector as kiwoom
+from pykiwoom.kiwoom import Kiwoom
 
-def bring_info(messages):
-    return texts
+kiwoom = Kiwoom()
+kiwoom.CommConnect()  # 키움 API 접속
+
+
+def bring_info(name):
+    code_list = kiwoom.GetCodeListByMarket('0')  # 전체 종목 코드 조회
+    code_name = []
+    for code in code_list:
+        code_name.append(kiwoom.GetMasterCodeName(code))
+
+    if name[0] in code_list: # name이 종목코드인 경우
+        value_list = kiwoom.block_request("opt10001",
+                                          종목코드=name[0],
+                                          output="주식기본정보",
+                                          next=0).to_dict(orient='records')
+    else:
+        index = code_name.index(name[0]) # name이 종목이름인 경우
+        value_list = kiwoom.block_request("opt10001",
+                                          종목코드=code_list[index],
+                                          output="주식기본정보",
+                                          next=0).to_dict(orient='records')
+        print(value_list)
+    return_text = ''
+    for item in value_list[0].items():
+        return_text += item[0] + ' : ' + item[1] + '\n'
+
+    return return_text
 
 def bring_News(messages):
 
@@ -27,6 +52,6 @@ def set_Alarm(messages):
 
 def search_info(messages):
 
-    return texts
+    return True
 
 
