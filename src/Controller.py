@@ -5,7 +5,7 @@ import KiwoomConnector
 import os,json
 
 kiwoom = Kiwoom()
-kiwoom.CommConnect()  # 키움 API 접속
+kiwoom.CommConnect(block=True)  # 키움 API 접속
 
 
 def bring_info(name):
@@ -26,6 +26,7 @@ def bring_info(name):
     
     print(value_list)
     return_text = ''
+    print(return_text)
     for item in value_list[0].items():
         return_text += item[0] + ' : ' + item[1] + '\n'
 

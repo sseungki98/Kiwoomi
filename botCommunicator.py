@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from pykiwoom.kiwoom import Kiwoom
 
 commands = ['/info', '/alarm', '/news', '/search']
-token = '6068822535:AAEdX6RZ9_7N85NtDsyYornSU5LeoH9tEdI'
+token = '6184520289:AAH_E_DLW-SZIfFkLrnDv9sRrUvWOTJVw68'
 
 bot = telegram.Bot(token=token) # 토큰으로 봇 생성
 updater = Updater(token=token, use_context=True) # 업데이터 생성
