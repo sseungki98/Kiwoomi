@@ -15,16 +15,23 @@ def get_condition_codes_name():
     for code in code_list:
         code_name.append(kiwoom.GetMasterCodeName(code))
     
-    stock_dict=dict(zip(code_name,code_list));
-    with open('stock_data.json','w') as file:
-        json.dump(stock_dict, file, ensure_ascii=False, indent=4)
 
     return code_name
+
 def get_codes():
     code_list = kiwoom.GetCodeListByMarket('0')  # 전체 종목 코드 조회
     code_name = []
     for code in code_list:
         code_name.append(kiwoom.GetMasterCodeName(code))
+    
+    stock_dict=dict(zip(code_name,code_list));
+    with open('stock_data.json','w') as file:
+        json.dump(stock_dict, file, ensure_ascii=False, indent=4)
+
+    
+
+
+
 def get_info(market):
     code_name = []
     output_list = ['종목코드',
