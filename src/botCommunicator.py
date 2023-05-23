@@ -3,7 +3,7 @@ from telegram.ext import Updater, CommandHandler
 import Controller
 
 # 텔레그램 봇 토큰
-TOKEN = '6184520289:AAH_E_DLW-SZIfFkLrnDv9sRrUvWOTJVw68'
+TOKEN = '6068822535:AAEdX6RZ9_7N85NtDsyYornSU5LeoH9tEdI'
 bot = telegram.Bot(token=TOKEN)
 # 메시지를 저장할 배열
 messages = []
