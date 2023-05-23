@@ -1,33 +1,29 @@
 import requests
 from bs4 import BeautifulSoup
 from pykiwoom.kiwoom import Kiwoom
+import KiwoomConnector
+import os,json
 
 kiwoom = Kiwoom()
 kiwoom.CommConnect(block=True)  # 키움 API 접속
 
 
 def bring_info(name):
-    print(name)
-    code_list = kiwoom.GetCodeListByMarket('0')  # 전체 종목 코드 조회
-    code_name = []
-    for code in code_list:
-        code_name.append(kiwoom.GetMasterCodeName(code))
-
-    print(len(code_name), len(code_list))
-    if name[0] in code_list: # name이 종목코드인 경우
-        value_list = kiwoom.block_request("opt10001",
-                                          종목코드=name[0],
-                                          output="주식기본정보",
-                                          next=0).to_dict(orient='records')
-    else:
-        index = code_name.index(name[0]) # name이 종목이름인 경우
-        print(index)
-        print(code_list[index])
-        value_list = kiwoom.block_request("opt10001",
-                                          종목코드=code_list[index],
-                                          output="주식기본정보",
-                                          next=0).to_dict(orient='records')
-        print(value_list)
+    if not (os.path.exists('./stock_data.json')):
+       KiwoomConnector.get_codes()
+    
+    with open('./stock_data.json','r') as file:
+        stock_dict=json.load(file)
+        stock_code=stock_dict.get(name)
+    if stock_code is None:
+        return("존재하지 않는 주식명 입니다. 확인후 다시 시도해주세요")
+    
+    value_list = kiwoom.block_request("opt10001",
+                                      종목코드=stock_code,
+                                      output="주식기본정보",
+                                      next=0).to_dict(orient='records')
+    
+    print(value_list)
     return_text = ''
     print(return_text)
     for item in value_list[0].items():

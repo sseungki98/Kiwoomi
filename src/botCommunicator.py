@@ -16,11 +16,11 @@ def start(update, context):
 #/help 명령어 처리 함수
 def help(update, context):
     chat_id = update.effective_chat.id
-    context.bot.send_message(chat_id=chat_id, text='키우미 봇은 간단한 주식 도움 봇이에요 \n \
-                             /info [주식명]= 주식의 현재 시세 및 관련 정보를 불러옵니다.\n \
-                             /search [주식명][옵션]= 주식의 일봉,월봉,연봉 등 특정 정보를 불러옵니다.\n \
-                             /alarm [주식명][가격]=주식이 특정 가격에 도달하였을 경우 봇을 통해 알려줍니다.\n \
-                             /news [주식명]=해당 주식에 관련된 기사를 모으고 헤드라인 기사를 띄워줍니다. ')
+    context.bot.send_message(chat_id=chat_id, text='키우미 봇은 간단한 주식 도움 봇이에요 /r \
+                             /info [주식명]= 주식의 현재 시세 및 관련 정보를 불러옵니다. /r\
+                             /search [주식명][옵션]= 주식의 일봉,월봉,연봉 등 특정 정보를 불러옵니다./r \
+                             /alarm [주식명][가격]=주식이 특정 가격에 도달하였을 경우 봇을 통해 알려줍니다. /r\
+                             /news [주식명]=해당 주식에 관련된 기사를 모으고 헤드라인 기사를 띄워줍니다. /r')
 
 # /info 명령어 처리 함수
 def info(update, context):
