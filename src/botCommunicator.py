@@ -1,9 +1,10 @@
 import telegram
 from telegram.ext import Updater, CommandHandler
+from telegram.ext import MessageHandler, Filters
 import Controller
 
 # 텔레그램 봇 토큰
-TOKEN = '6068822535:AAEdX6RZ9_7N85NtDsyYornSU5LeoH9tEdI'
+TOKEN = '6184520289:AAH_E_DLW-SZIfFkLrnDv9sRrUvWOTJVw68'
 bot = telegram.Bot(token=TOKEN)
 # 메시지를 저장할 배열
 messages = []
@@ -30,13 +31,14 @@ def info(update, context):
     # 메시지를 배열에 저장
     # Controller.py의 함수 호출
     result = Controller.bring_info(messages)
-    bot.sendMessage(chat_id=chat_id, text=messages[0] + '에 관한 정보입니다')
-    bot.sendMessage(chat_id=chat_id, text=result)
+    context.bot.sendMessage(chat_id=chat_id, text=messages[0] + '에 관한 정보입니다')
+    context.bot.sendMessage(chat_id=chat_id, text=result)
     messages.clear()
 
 
 # /news 명령어 처리 함수
 def news(update, context):
+    print('test')
     chat_id = update.effective_chat.id
     # 메시지를 배열에 저장
     messages.append(context.args[0])
@@ -70,6 +72,7 @@ def search(update, context):
     result=Controller.search_info(messages)
     bot.sendMessage(chat_id=chat_id, text=context.args[0] + '에 관한'+context.args[1]+'정보입니다.')
     bot.sendMessage(chat_id=chat_id, text=result)
+
 
 # 메시지를 받아들이고 명령어 처리 함수를 연결하는 Updater 객체 생성
 updater = Updater(TOKEN, use_context=True)
