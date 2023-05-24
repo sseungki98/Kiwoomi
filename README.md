@@ -15,3 +15,5 @@
 ## How to use?
 1. 텔레그램에서 @dku_kiwoomi_bot을 검색한다.
 2. 원하는 명령어를 입력하여 관련 정보를 얻는다.(명령어는 문서 확인 혹은 /help를 통해 확인할 수 있음)
+
+<img alt="news" src='https://github.com/sseungki98/Kiwoomi/assets/79951703/18bf0414-6308-43b2-b766-b0b4380513ff'>
