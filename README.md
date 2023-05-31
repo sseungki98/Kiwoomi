@@ -16,4 +16,20 @@
 1. 텔레그램에서 @dku_kiwoomi_bot을 검색한다.
 2. 원하는 명령어를 입력하여 관련 정보를 얻는다.(명령어는 문서 확인 혹은 /help를 통해 확인할 수 있음)
 
+## 기능 상세
+<hr>
+<br>
+### /help
+<img width="377" alt="image" src="https://github.com/sseungki98/Kiwoomi/assets/89785414/da628cc5-a289-4b50-a409-93b109911bb3">
+<br>
+
+### /info $name $option
+![0000](https://github.com/sseungki98/Kiwoomi/assets/89785414/c2c56051-de5e-49f3-b178-0fde383a59e8)
+<br>
+
+### /alarm $name $price 
+![12121212](https://github.com/sseungki98/Kiwoomi/assets/89785414/677cb1fb-5854-4aa3-afbe-43ae2af12470)
+<br>
+
+### /news $name
 <img alt="news" src='https://github.com/sseungki98/Kiwoomi/assets/79951703/18bf0414-6308-43b2-b766-b0b4380513ff'>
