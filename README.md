@@ -1,9 +1,9 @@
 # Kiwoomi(키우미)
 ## 키움 Open API+를 이용한 텔레그램 챗봇 프로그램
-- <img width="130" alt="image" src="https://github.com/sseungki98/Kiwoomi/assets/89785414/d496a2fd-de4b-4d98-a631-2646406ec86e">
+- <img width="130" alt="image" src="https://github.com/sseungki98/Kiwoomi/assets/89785414/d496a2fd-de4b-4d98-a631-2646406ec86e"><br>
   [키움 오픈 API+](https://www.kiwoom.com/h/customer/download/VOpenApiInfoView) 
 
-- <img width="130" alt="image" src="https://github.com/sseungki98/Kiwoomi/assets/89785414/e109a4c3-bbbc-45b7-9a6f-7aead93261e9">
+- <img width="130" alt="image" src="https://github.com/sseungki98/Kiwoomi/assets/89785414/e109a4c3-bbbc-45b7-9a6f-7aead93261e9"><br>
   [텔레그램](https://telegram.org/?setln=ko)
 
 ## 기본 Work Flow
