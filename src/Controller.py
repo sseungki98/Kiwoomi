@@ -12,12 +12,14 @@ kiwoom.CommConnect(block=True)  # 키움 API 접속
 
 
 def bring_info(name):
-    if not (os.path.exists('./stock_data.json')):
-       KiwoomConnector.get_codes()
 
-    with open('./stock_data.json','r') as file:
+    if not (os.path.exists('stock_data.json')):
+        KiwoomConnector.get_codes()
+    
+    with open('stock_data.json','r') as file:
         stock_dict=json.load(file)
         stock_code=stock_dict.get(name)
+    
     if stock_code is None:
         return("존재하지 않는 주식명 입니다. 확인후 다시 시도해주세요")
 
