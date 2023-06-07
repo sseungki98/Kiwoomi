@@ -19,6 +19,10 @@
 1. 텔레그램에서 @dku_kiwoomi_bot을 검색한다.
 2. 원하는 명령어를 입력하여 관련 정보를 얻는다.(명령어는 문서 확인 혹은 /help를 통해 확인할 수 있음)
 
+## Before Use
+- Kiwoom 투자증권 OPEN API+의 신청이 필요함 [신청 페이지](https://www.kiwoom.com/h/customer/download/VOpenApiInfoView)
+- KOA Studio를 설치한 뒤, Kiwoom 계정 로그인을 진행해야 함
+
 ## 기능 상세
 
 ### /help
@@ -39,3 +43,8 @@
 
 ## 기술스택🔧
 Python
+
+## How to use Script
+- 봇 구동은 botCommunicator.py 파일을, 명령어는 Controller.py 파일을 통해 진행한다.
+- 새로운 봇을 사용해 해당 기능을 사용하고 싶다면, bot Father을 통해 새로운 봇 토큰을 발급받고, 이를 botCommunicator.py 파일의 bot_token 변수를 변경하면 된다.
+- 기능을 추가하고 싶으면 Controller.py에서 새로운 함수를 추가하는 방식으로 진행하면 된다.
