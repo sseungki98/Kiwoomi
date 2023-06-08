@@ -33,4 +33,4 @@ def get_info(name):
 
     return return_text
 
-print(get_info('삼성전자'))
+print(get_info('035720'))
